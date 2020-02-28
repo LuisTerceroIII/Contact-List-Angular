@@ -11,7 +11,7 @@ export class RandomUsersService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    let path = `${this.api}/?results=20`
+    let path = `${this.api}/?results=50`
     return this.http.get(path)
   }
 

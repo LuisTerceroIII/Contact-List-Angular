@@ -1,77 +1,91 @@
-<mat-form-field>
-  <input
-    matInput
-    (keyup)="applyFilter($event.target.value)"
-    placeholder="Filter"
-    id="filter"
-  />
-</mat-form-field>
+<div class="logo">
+  <img src="http://icons.iconarchive.com/icons/froyoshark/enkel/256/Contacts-icon.png" alt="logo-image" class="main-image">
+</div>
 
-<table #table mat-table [dataSource]="data" multiTemplateDataRows >
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id</th>
-    <td mat-cell *matCellDef="let user">{{ user.id }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="fullname">
-    <th mat-header-cell *matHeaderCellDef> Full name</th>
-    <td mat-cell *matCellDef="let user"> {{ user.fullname }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef>Email</th>
-    <td mat-cell *matCellDef="let user">{{ user.email }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="phone">
-    <th mat-header-cell *matHeaderCellDef> Phone</th>
-    <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="location">
-    <th mat-header-cell *matHeaderCellDef> Location</th>
-    <td mat-cell *matCellDef="let user">{{ user.location }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action</th>
-    <td mat-cell *matCellDef="let user">
-      <button mat-raised-button color="warn" (click)="delete(user.id)">
-        Delete
-      </button>
-    </td>
-  </ng-container>
-
-  <!-- Expandable row -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let user" [attr.colspan]="columnsToDisplay.length">
-      <div class="user-detail"
-           [@detailExpand]="user == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="user-description">
-          {{user.fullname}}
+<div class="main-container">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="applyFilter($event.target.value)"
+      placeholder="Filter"
+      id="filter"
+    />
+  </mat-form-field>
+  
+  <table #table mat-table [dataSource]="data" multiTemplateDataRows >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef id="input-id"> Id</th>
+      <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="fullname">
+      <th mat-header-cell *matHeaderCellDef> Full name</th>
+      <td mat-cell *matCellDef="let user"> {{ user.fullname }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef> Phone</th>
+      <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef> Location</th>
+      <td mat-cell *matCellDef="let user">{{ user.location }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action</th>
+      <td mat-cell *matCellDef="let user">
+        <button mat-raised-button color="warn" (click)="delete(user.id)">
+          Delete
+        </button>
+      </td>
+    </ng-container>
+  
+    <!-- Expandable row -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let user" [attr.colspan]="columnsToDisplay.length">
+        <div class="user-detail"
+             [@detailExpand]="user == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="user-description">
+            <div>
+              <img src="{{user.picture}}" alt="profile photo" class="profile-image">
+            </div>
+            <div class="description">
+              Name : {{user.fullname}} <br>
+              Phone : {{user.phone}} <br>
+              Cell : {{user.cell}} <br>
+              Email : {{user.email}}
+            </div>
+          </div>
         </div>
-      </div>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let rowData; columns: columnsToDisplay;"
-      class="element-row"
-      [class.expanded-row]="expandedElement === rowData"
-      (click)="expandedElement = expandedElement === rowData ? null : rowData">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
-</table>
-<mat-paginator
-  [length]="length"
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="pageEvent = render($event)"
->
-</mat-paginator>
-<!-- <div *ngIf="pageEvent">
-    <h5>Page Change Event Properties</h5>
-    <div>List length: {{pageEvent.length}}</div>
-    <div>Page size: {{pageEvent.pageSize}}</div>
-    <div>Page index: {{pageEvent.pageIndex}}</div>
-  </div> -->
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let rowData; columns: columnsToDisplay;"
+        class="element-row"
+        [class.expanded-row]="expandedElement === rowData"
+        (click)="expandedElement = expandedElement === rowData ? null : rowData">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+  </table>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = render($event)"
+  >
+  </mat-paginator>
+  <!-- <div *ngIf="pageEvent">
+      <h5>Page Change Event Properties</h5>
+      <div>List length: {{pageEvent.length}}</div>
+      <div>Page size: {{pageEvent.pageSize}}</div>
+      <div>Page index: {{pageEvent.pageIndex}}</div>
+    </div> -->
+</div>

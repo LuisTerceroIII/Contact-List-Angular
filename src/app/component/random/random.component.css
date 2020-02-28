@@ -1,12 +1,41 @@
-table {
-    width: 100%;
+/* ---------------------------------------------------------------------------- */
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #424242;
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  padding: 3%;
+  background-color: #424242;
+}
+.main-image{
+  width: 300px;
+  height: 300px;
 }
 
+
+
+
+/* ---------------------------------------------------------------------------- */
+
+table {
+    width: 90%;
+}
+
+#input-id{
+  padding: 3%;
+  padding-right: 5%;
+}
 .mat-form-field {
     font-size: 20px;
-    width: 100%;
+    width: 90%;
     background-color: rgb(66, 66, 66);
     font-size: larger;
+    border-radius: 2%;
 }
 
 #filter {
@@ -19,16 +48,19 @@ table {
 /* input color class */
 ::ng-deep input.mat-input-element {
     color: #484a4c;
+    caret-color: #f3e527 ;
   }
   
   /* Change label color on focused */
   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-    color: #ffffff !important;
+    color: #f1e20f !important;
+    
   }
   
   /* underline border color on focused */
   ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
     background-color: #f3e527 !important;
+    
   }
 
 
@@ -41,6 +73,20 @@ table {
   
   .user-description {
     padding: 16px;
+    display: flex;
+    flex-direction: row;
+    min-width: 50%;
+
+  }
+
+  .profile-image{
+    border-radius: 50%;
+  }
+
+  .description{
+    margin-left: 5%;
+    font-weight: 500;
+    font-size: large;
   }
 
   .detail-row {
@@ -60,5 +106,5 @@ table {
   }
   
   .element-row td {
-    border-bottom-width: 0;
+    border-bottom-width: 3;
   }

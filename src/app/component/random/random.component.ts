@@ -44,7 +44,9 @@ export class RandomComponent implements OnInit {
           fullname: `${user.name.title} ${user.name.first} ${user.name.last}`,
           email: user.email,
           phone: user.phone,
-          location: `${user.location.street.name} ${user.location.street.number}, ${user.location.city},${user.location.state}, ${user.location.country}`
+          cell: user.cell,
+          location: `${user.location.street.name} ${user.location.street.number}, ${user.location.city},${user.location.state}, ${user.location.country}`,
+          picture : user.picture.large
       }
       this.randomUsers.push(newUser)
       })

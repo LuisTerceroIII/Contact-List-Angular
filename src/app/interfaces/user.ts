@@ -3,5 +3,7 @@ export interface User {
     fullname: string;
     email: string;
     phone: string;
+    cell: string;
     location: string;
+    picture: string;
 }
