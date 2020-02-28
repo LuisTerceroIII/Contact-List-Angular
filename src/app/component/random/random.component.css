@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 20px;
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+    font-size: larger;
+}
+
+#filter {
+    margin-top: 2%;
+    color: #ffffff;
+
+}
+
+
+/* input color class */
+::ng-deep input.mat-input-element {
+    color: #484a4c;
+  }
+  
+  /* Change label color on focused */
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #ffffff !important;
+  }
+  
+  /* underline border color on focused */
+  ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: #f3e527 !important;
+  }
+
+
+  /* ------------------ EXPANDABLE ROWS - ANGULAR MATERIAL -------------------------- */
+ 

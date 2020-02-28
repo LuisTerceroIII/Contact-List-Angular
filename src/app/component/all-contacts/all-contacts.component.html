@@ -1,0 +1,26 @@
+<div class="main-image">
+  <img src="http://icons.iconarchive.com/icons/froyoshark/enkel/256/Contacts-icon.png" alt="Contact Icon" />
+  <h1 class="mat-display-1">Your Contacts</h1>
+  <button (click)="getAll()"></button>
+</div>
+
+
+<div class="table-container">
+  <mat-table [dataSource]="dataSource">
+    <!-- Number column -->
+    <ng-container *ngFor="let column of columns" matColumnDef="{{column.name}}" >
+      <mat-header-cell *matHeaderCellDef >{{column.title}}</mat-header-cell>
+      
+        <mat-cell *matCellDef="let contact">{{ contact[column.name]}}</mat-cell>
+     
+    </ng-container>
+    
+
+    <!-- Action column -->
+    
+
+    <mat-header-row *matHeaderRowDef="columnsDisplay ;sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnsDisplay;"></mat-row>
+  </mat-table>
+
+</div>
