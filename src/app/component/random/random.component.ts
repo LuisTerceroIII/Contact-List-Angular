@@ -4,6 +4,8 @@ import { RandomUsersService } from './../../services/random-users.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 /* Expandable rows */
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 
 
 import { User } from './../../interfaces/user';
@@ -11,14 +13,23 @@ import { User } from './../../interfaces/user';
 @Component({
   selector: 'app-random',
   templateUrl: './random.component.html',
-  styleUrls: ['./random.component.css']
+  styleUrls: ['./random.component.css'],
+  /* Expandable rows */
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class RandomComponent implements OnInit {
-
+  
   randomUsers : User[] = []; 
   data = new MatTableDataSource<User>(this.randomUsers)
   id: number = 0;
   columnsToDisplay = ['id','fullname','email','phone','location','action']
+  expandedElement: User | null;
   
   @ViewChild('table',{static:false}) table;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
