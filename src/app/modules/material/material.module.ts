@@ -5,6 +5,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import {MatPaginatorModule} from '@angular/material/paginator'; 
 import {MatFormFieldModule} from '@angular/material/form-field'; 
 import {MatInputModule} from '@angular/material/input';
+import {MatStepperModule} from '@angular/material/stepper'; 
 
 
 
@@ -16,7 +17,8 @@ const materialComponent = [
   CdkTableModule,
   MatPaginatorModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatStepperModule
   
 
 ]

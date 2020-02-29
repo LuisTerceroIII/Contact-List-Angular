@@ -14,11 +14,17 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { MaterialModule } from './modules/material/material.module';
 import {CdkTableModule} from '@angular/cdk/table';
-import { RandomComponent } from './component/random/random.component';   
+import { RandomComponent } from './component/random/random.component';
+
+import { CreateContactComponent } from './component/create-contact/create-contact.component';  
+
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes : Routes = [
   {path : 'contacts',  component: AllContactsComponent },
-  {path: 'random', component: RandomComponent}
+  {path: 'random', component: RandomComponent},
+  { path: 'random/create', component: CreateContactComponent }
 ] 
 
 
@@ -28,7 +34,8 @@ const routes : Routes = [
     HeaderComponent,
     FooterComponent,
     AllContactsComponent,
-    RandomComponent
+    RandomComponent,
+    CreateContactComponent
   ],
   imports: [
     BrowserModule,
@@ -36,10 +43,13 @@ const routes : Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     MaterialModule,
-    CdkTableModule
+    CdkTableModule,
+    ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

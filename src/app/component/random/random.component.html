@@ -2,6 +2,10 @@
   <img src="http://icons.iconarchive.com/icons/froyoshark/enkel/256/Contacts-icon.png" alt="logo-image" class="main-image">
 </div>
 
+<div class="create-contact" >
+  <a mat-raised-button color="accent" href="random/create" id="new-button">New</a>
+</div>
+
 <div class="main-container">
   <mat-form-field>
     <input
@@ -14,34 +18,34 @@
   
   <table #table mat-table [dataSource]="data" multiTemplateDataRows >
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef id="input-id"> Id</th>
+      <th mat-header-cell *matHeaderCellDef id="input-id" class="title-table"> Id</th>
       <td mat-cell *matCellDef="let user">{{ user.id }}</td>
     </ng-container>
   
     <ng-container matColumnDef="fullname">
-      <th mat-header-cell *matHeaderCellDef> Full name</th>
+      <th mat-header-cell *matHeaderCellDef class="title-table">  Full name</th>
       <td mat-cell *matCellDef="let user"> {{ user.fullname }}</td>
     </ng-container>
   
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <th mat-header-cell *matHeaderCellDef class="title-table">Email</th>
       <td mat-cell *matCellDef="let user">{{ user.email }}</td>
     </ng-container>
   
     <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef> Phone</th>
+      <th mat-header-cell *matHeaderCellDef class="title-table"> Phone</th>
       <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
     </ng-container>
   
     <ng-container matColumnDef="location">
-      <th mat-header-cell *matHeaderCellDef> Location</th>
+      <th mat-header-cell *matHeaderCellDef class="title-table"> Location</th>
       <td mat-cell *matCellDef="let user">{{ user.location }}</td>
     </ng-container>
   
-    <ng-container matColumnDef="action">
+    <ng-container matColumnDef="action" class="title-table">
       <th mat-header-cell *matHeaderCellDef> Action</th>
       <td mat-cell *matCellDef="let user">
-        <button mat-raised-button color="warn" (click)="delete(user.id)">
+        <button id="delete-button" mat-raised-button color="warn" (click)="delete(user.id)">
           Delete
         </button>
       </td>
