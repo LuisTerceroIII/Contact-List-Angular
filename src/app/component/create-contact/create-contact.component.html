@@ -6,20 +6,20 @@
 
       <mat-vertical-stepper [linear]="isLinear" #stepper>
 
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
+        <mat-step [stepControl]="firstFormGroup_FULLNAME">
+          <form [formGroup]="firstFormGroup_FULLNAME">
             <ng-template matStepLabel>Fill out your name</ng-template>
             <mat-form-field>
                 <mat-label>Title</mat-label>
-                <input matInput placeholder="Ex. Sr." formControlName="firstCtrl" required>
+                <input matInput placeholder="Ex. Sr." formControlName="title" required>
               </mat-form-field>
             <mat-form-field>
               <mat-label>First ame</mat-label>
-              <input matInput placeholder="Ex. Bruce" formControlName="firstCtrl" required>
+              <input matInput placeholder="Ex. Bruce" formControlName="name" required>
             </mat-form-field>
             <mat-form-field>
               <mat-label>Last name</mat-label>
-              <input matInput placeholder="Ex. Wayne" formControlName="firstCtrl" required>
+              <input matInput placeholder="Ex. Wayne" formControlName="lastname" required>
             </mat-form-field>
             <div>
               <button mat-button matStepperNext>Next</button>
@@ -27,22 +27,22 @@
           </form>
         </mat-step>
     
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="secondFormGroup">
+        <mat-step [stepControl]="secondFormGroup_CONTACT_INFO">
+            <form [formGroup]="secondFormGroup_CONTACT_INFO">
               <ng-template matStepLabel>Fill out your contact information</ng-template>
               <mat-form-field>
                 <mat-label>Phone</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="Ex. 054 9 11 69671352"
+                <input matInput formControlName="phone" placeholder="Ex. 054 9 11 69671352"
                        required>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Cell</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="Ex. 054 9 11 612377892"
+                <input matInput formControlName="cell" placeholder="Ex. 054 9 11 612377892"
                        required>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="Ex. user@example.com"
+                <input matInput formControlName="email" placeholder="Ex. user@example.com"
                        required>
               </mat-form-field>
               
@@ -52,27 +52,27 @@
               </div>
             </form>
           </mat-step>
-          <mat-step [stepControl]="thirdFormGroup">
-            <form [formGroup]="thirdFormGroup">
+          <mat-step [stepControl]="thirdFormGroup_ADDRESS">
+            <form [formGroup]="thirdFormGroup_ADDRESS">
               <ng-template matStepLabel>Fill out your address</ng-template>
               <mat-form-field>
                 <mat-label>Country</mat-label>
-                <input matInput formControlName="thirdCtrl" placeholder="Ex. Argentina"
+                <input matInput formControlName="country" placeholder="Ex. Argentina"
                        required>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>City</mat-label>
-                <input matInput formControlName="thirdCtrl" placeholder="Ex. Buenos Aires"
+                <input matInput formControlName="city" placeholder="Ex. Buenos Aires"
                        required>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Street name</mat-label>
-                <input matInput formControlName="thirdCtrl" placeholder="Ex. Presidente Derqui"
+                <input matInput formControlName="streetName" placeholder="Ex. Presidente Derqui"
                        required>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Street number</mat-label>
-                <input matInput formControlName="thirdCtrl" placeholder="Ex. 2024"
+                <input matInput formControlName="streetNumber" placeholder="Ex. 2024"
                        required>
               </mat-form-field>
               <div>
@@ -85,8 +85,8 @@
           <ng-template matStepLabel>Done</ng-template>
           <p>You are now done.</p>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button >Send</button>
+            <button mat-button matStepperPrevious > Back</button>
+            <button mat-button (click)="submit()">Send</button>
             <button mat-button (click)="stepper.reset()">Reset</button>
           </div>
         </mat-step>

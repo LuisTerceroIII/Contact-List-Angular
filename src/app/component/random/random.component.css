@@ -44,6 +44,7 @@ table {
   height: 40px;
   background-color: gold;
   text-decoration : none;
+  font-size: larger;
 }
 
 #input-id{
