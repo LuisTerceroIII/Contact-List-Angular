@@ -5,9 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 /* Expandable rows */
 import {animate, state, style, transition, trigger} from '@angular/animations';
-
-
-
+/* -------------------------- */
 import { User } from './../../interfaces/user';
 
 @Component({

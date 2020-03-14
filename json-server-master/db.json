@@ -1,0 +1,36 @@
+{
+  "contact": [
+    {
+      "id": 1,
+      "firstName": "Luis",
+      "lastName": "Espinoza",
+      "phone": "011-15-69671352",
+      "cell": "011-15-69682431",
+      "email": "luis.espinoza.nav@live.com",
+      "country": "Chile",
+      "city": "San Bernardo",
+      "streetName": "Artes y letras",
+      "streetNumber": "03013"
+    },
+    {
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "phone": "011-15-123123123",
+      "cell": "011-15-231231233",
+      "email": "bruce@wayne.com",
+      "country": "EEUU",
+      "city": "Gotham",
+      "streetName": "Wayne Manner",
+      "streetNumber": "0000",
+      "id": 2
+    },
+    {
+      "fullname": "Mr. Oswal Cobblepot",
+      "email": "pinguien@gotham.gt",
+      "phone": "12345678901",
+      "cell": "12312313",
+      "location": "Unknow 00000, Gotham, EEUU",
+      "id": 3
+    }
+  ]
+}
