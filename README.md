@@ -1,6 +1,6 @@
 # ContactList
 
-Current project in progress made with angular and angular material. Far away of the content of the site, the idea is to build a web with Angular 
+Mini project made with angular and angular material. Far away of the content of the site, the idea is to build a web with Angular 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
